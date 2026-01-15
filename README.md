@@ -9,6 +9,11 @@ To run the GUI, run:
 ## Tips while running
 - Do keep a the console open while running, it is nice to have while preforming tests.  
 
+## 3D models 
+- 2040 extrusion: Desgined by nanuk : http://printables.com/model/836963-vslot-2040/comments. My modified version can be found in `3D_models/2040_beam_15cm.stl`
+- 2040 extender piece. Desgined by elimile: https://www.printables.com/model/1412698-t-nut-insert-for-tv-slot-2020-extrusion. My modified version can be found in `3D_models/extender_10cm.stl`
+- Bed clamp: Desgin by Daniel Ashbrook. `3D_models/bed_clamp.stl`
+
 ## Architecture
 ### Overview: 
 Tkinter-based desktop GUI that orchestrates mechanical tests in a background process, streams readings back via queues, and plots Force–Displacement in real time with Matplotlib. All code related to executing the force-displacement tests are keept in `ender_fdm` and its main file `force_test.py`. Inside the dirs `configs`, `test_reports`, `custom_tests` and `plots` are saved configuration files, JSON test reports, custom test recipes and saved plots respectively.
