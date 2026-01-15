@@ -12,7 +12,7 @@ To run the GUI, run:
 ## 3D models 
 - 2040 extrusion: Desgined by nanuk : http://printables.com/model/836963-vslot-2040/comments. My modified version can be found in `3D_models/2040_beam_15cm.stl`
 - 2040 extender piece. Desgined by elimile: https://www.printables.com/model/1412698-t-nut-insert-for-tv-slot-2020-extrusion. My modified version can be found in `3D_models/extender_10cm.stl`
-- Bed clamp: Desgin by Daniel Ashbrook. `3D_models/bed_clamp.stl`
+- Bed clamp: Desgin by Daniel Ashbrook. My modified version can be found in `3D_models/bed_clamps.stl`
 
 ## Architecture
 ### Overview: 
