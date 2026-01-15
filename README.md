@@ -59,7 +59,7 @@ Inside the `force_gauge.py` is the config from the GUI read and the test functio
 Inside the `ender_fdm/force_gauge.py` is the main logic of each test type implemented. 
 
 # Parameters of the config file
-## Serial Connection Parameters
+### Serial Connection Parameters
 | Parameter | Description |
 |----------|------------|
 | `force_gauge_port` | Serial port used to communicate with the force gauge. |
@@ -68,15 +68,13 @@ Inside the `ender_fdm/force_gauge.py` is the main logic of each test type implem
 | `printer_baud` | Baud rate of the printer serial connection. |
 ---
 
-## Motion Options
-
+### Motion Options
 | Parameter | Description |
 |----------|------------|
 | `feedrate` | Default feedrate for all printer movements (mm/min). |
 ---
 
-## Startup Move Options
-
+### Startup Move Options
 | Parameter | Description |
 |----------|------------|
 | `first_move_z_up_by` | Move the Z-axis up by this distance (mm) before starting. |
@@ -87,8 +85,7 @@ Inside the `ender_fdm/force_gauge.py` is the main logic of each test type implem
 | `zero_fine_inc` | Fine movement step used during zeroing (mm). |
 ---
 
-## General Test Options
-
+### General Test Options
 | Parameter | Description |
 |----------|------------|
 | `test_type` | Type of test to perform: `careful`, `force-limit_test`, `displacement-limit_test`, `custom`  |
@@ -99,8 +96,7 @@ Inside the `ender_fdm/force_gauge.py` is the main logic of each test type implem
 | `outfile` | Output CSV file for recorded test data. |
 ---
 
-## Careful Test Options
-
+### Careful Test Options
 | Parameter | Description |
 |----------|------------|
 | `n_samples` | Number of samples averaged per measurement increment. |
@@ -111,7 +107,7 @@ Inside the `ender_fdm/force_gauge.py` is the main logic of each test type implem
 | `upg_max` | Fixed upward travel distance when automation is disabled (mm). Requires `max_down`. |
 ---
 
-## Limit Test Options
+### Limit Test Options
 | Parameter | Description |
 |----------|------------|
 | `force_threshold` | Stop the test if this force is exceeded. |
@@ -119,7 +115,7 @@ Inside the `ender_fdm/force_gauge.py` is the main logic of each test type implem
 | `hold_time` | Time (seconds) to hold the final test position. |
 ---
 
-## Utility Options
+### Utility Options
 | Parameter | Description |
 |----------|------------|
 | `force_info` | If `> 0`, print force information the specified number of times and exit. If `< 0`, print force information continuously until interrupted. |
