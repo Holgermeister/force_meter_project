@@ -1,7 +1,13 @@
 # ForceMeter GUI
+## How to run
+To run the GUI, run: 
+  - Windows: `python GUI_main.py`
+  - Linux/Mac: `python3 GUI_main.py` 
+
+## Tips while running
+- Do keep a the console open while running, it is nice to have while preforming tests.  
 
 ## Architecture
-
 ### Overview: 
 Tkinter-based desktop GUI that orchestrates mechanical tests in a background process, streams readings back via queues, and plots Force–Displacement in real time with Matplotlib. All code related to executing the force-displacement tests are keept in `ender_fdm` and its main file `force_test.py`. Inside the dirs `configs`, `test_reports`, `custom_tests` and `plots` are saved configuration files, JSON test reports, custom test recipes and saved plots respectively.
 
