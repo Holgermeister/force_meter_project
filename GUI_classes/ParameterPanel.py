@@ -24,6 +24,7 @@ class ParameterPanel:
         return r
 
     def write_config(self):
+        """Generate and save a configuration file based on current parameters."""
         config_path = f"{self.app.vars['test_id'].get()}.json"
         full_config_path = self.app.path_configs / config_path
 
@@ -64,6 +65,7 @@ class ParameterPanel:
             json.dump(cfg, f, indent=2)
 
     def update_visibility(self, *_args):
+        """Update visibility of parameter rows based on test type."""
         test = self.app.vars["test_type"].get().lower()
         if self.custom_btns_container:
             self.custom_btns_container.pack_forget()
@@ -93,6 +95,7 @@ class ParameterPanel:
             self.min_down_row.pack(fill="x", pady=2)
 
     def build(self, parent):
+        """Build the parameter panel UI."""
         frame = ttk.Frame(parent, padding=10)
         frame.pack(side="left", fill="y")
 

@@ -63,7 +63,7 @@ class CustomTestBuilder:
         recipe_path = self.app.path_custom_tests / f"{json_recipe.name}.json"
         with open(recipe_path,"w") as f:
             json.dump(asdict(json_recipe), f, indent=2, default=Auxiliary.json_encode)
-        # Clear current custom test moves
+        # Clear current custom test moves after saving
         self.app.current_custom_test.clear()
    
     def upload_custom_test(self):

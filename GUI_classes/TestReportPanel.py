@@ -75,7 +75,8 @@ class TestReportPanel:
         with open(path_to_file, "w") as f:
             json.dump(data, f, indent=2, default=Auxiliary.json_encode)
 
-        # change the name on the selected item to show it's invalidated
+        # change the name on the selected item to show it's invalidated, 
+        # but does not change the file name of the report
         self.names[selection[0]] = f"{self.names[selection[0]]} (INVALID)"
 
 
@@ -98,5 +99,3 @@ class TestReportPanel:
         except Exception as e:
             print(f"Error deleting test report: {e}")
     
-    def plot(self):
-        pass

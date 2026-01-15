@@ -17,6 +17,7 @@ class Auxiliary:
         return TestConfig(**data)
     
     def safe_call(stop_event, queue, cmd_queue, config):
+        """Calls main() in a safe way, catching exceptions"""
         if stop_event == True:
             print("thread stopped")
             return

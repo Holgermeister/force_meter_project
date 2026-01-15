@@ -19,6 +19,7 @@ from GUI_classes.DataJson import TestConfig
 
 def main(msg_queue: multiprocessing.Queue, cmd_queue: multiprocessing.Queue, cfg: TestConfig):
 	print("Starting test with config")
+	# initialize FDMeter with parameters from cfg
 	meter = FDMeter(
 			printer_port        = cfg.printer_port,
 			force_gauge_port    = None if cfg.exit_after_first_z_move else cfg.force_gauge_port,
@@ -39,7 +40,7 @@ def main(msg_queue: multiprocessing.Queue, cmd_queue: multiprocessing.Queue, cfg
 		sys.exit(0)
 
 	feedrate = min(cfg.feedrate, MAX_FEEDRATE)
-
+	
 	if cfg.first_move_z_up_by or cfg.first_move_z_down_by:
 		direction = UP if cfg.first_move_z_up_by else DOWN
 		amount = cfg.first_move_z_up_by or cfg.first_move_z_down_by
@@ -53,7 +54,7 @@ def main(msg_queue: multiprocessing.Queue, cmd_queue: multiprocessing.Queue, cfg
 		if cfg.exit_after_first_z_move or cfg.quicktest:
 			print('Moved z, exiting')
 			sys.exit(0)
-
+	# Tells the GUI that a new test is starting
 	msg_queue.put("connected")
 	z = meter.z_endstop()
 	print(f'endstop {z}')
