@@ -49,11 +49,84 @@ Defines message types used in custom testing:
 
 ## Testing logic
 Inside the `force_gauge.py` is the config from the GUI read and the test function according to the `Test_type` is executed and all parameters need for the test can be found in the config file.
-
 Inside the `ender_fdm/force_gauge.py` is the main logic of each test type implemented. 
 
+# Parameters of the config file
+## Serial Connection Parameters
 
+| Parameter | Description |
+|----------|------------|
+| `force_gauge_port` | Serial port used to communicate with the force gauge. |
+| `force_gauge_baud` | Baud rate of the force gauge serial connection. |
+| `printer_port` | Serial port used to communicate with the 3D printer. |
+| `printer_baud` | Baud rate of the printer serial connection. |
 
+---
+
+## Motion Options
+
+| Parameter | Description |
+|----------|------------|
+| `feedrate` | Default feedrate for all printer movements (mm/min). |
+
+---
+
+## Startup Move Options
+
+| Parameter | Description |
+|----------|------------|
+| `first_move_z_up_by` | Move the Z-axis up by this distance (mm) before starting. |
+| `first_move_z_down_by` | Move the Z-axis down by this distance (mm) before starting. |
+| `exit_after_first_z_move` | Exit the program after performing the initial Z movement. |
+| `do_zero` | Automatically zero the printer by moving down until force is detected. |
+| `zero_coarse_inc` | Coarse movement step used during zeroing (mm). |
+| `zero_fine_inc` | Fine movement step used during zeroing (mm). |
+
+---
+
+## General Test Options
+
+| Parameter | Description |
+|----------|------------|
+| `test_type` | Type of test to perform: `careful` or `smooth`. |
+| `test_direction` | Direction in which the movement test is performed. |
+| `test_loops` | Number of repeated loops; set to `0` to perform a single movement only. |
+| `test_num` | Starting index for test numbering. |
+| `return_to_zero_after_test` | Return to the zero position after a single test (`test_loops == 0`). |
+| `outfile` | Output CSV file for recorded test data. |
+
+---
+
+## Careful Test Options
+
+| Parameter | Description |
+|----------|------------|
+| `n_samples` | Number of samples averaged per measurement increment. |
+| `careful_inc` | Step size per measurement increment (mm). |
+| `stop_after` | Maximum travel distance before stopping if no snap-through occurs (mm). |
+| `min_down` | Minimum downward travel before snap-through detection begins (mm). |
+| `max_down` | Fixed downward travel distance when automation is disabled (mm). Requires `max_up`. |
+| `upg_max` | Fixed upward travel distance when automation is disabled (mm). Requires `max_down`. |
+
+---
+
+## Limit Test Options
+
+| Parameter | Description |
+|----------|------------|
+| `force_threshold` | Stop the test if this force is exceeded. |
+| `displacement_threshold` | Stop the test when this displacement is reached. |
+| `hold_time` | Time (seconds) to hold the final test position. |
+
+---
+
+## Utility Options
+
+| Parameter | Description |
+|----------|------------|
+| `force_info` | If `> 0`, print force information the specified number of times and exit. If `< 0`, print force information continuously until interrupted. |
+| `quicktest` | Perform the initial Z movement and print force data. |
+| `debug_gcode` | Print every G-code command as it is issued. |
 
 
 
