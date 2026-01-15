@@ -1,4 +1,6 @@
 # ForceMeter GUI
+The dir `ender_fdm`, `force_gauge.py`, `results2csv.py`, `combined_tests.py` and `defined_models.csv` is forked from https://github.com/fetlab/printer_force_displacement!
+
 ## How to run
 To run the GUI, run: 
   - Windows: `python GUI_main.py`
