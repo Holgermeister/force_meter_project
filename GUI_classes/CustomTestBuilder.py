@@ -12,7 +12,14 @@ class CustomTestBuilder:
         # Hold a live reference to the App instance 
         self.app = app
 
-    def send_custom_test_command(self, direction, increment):        
+    def send_custom_test_command(self, direction, increment):  
+        if increment < 0.1:
+            messagebox.showerror(
+                title="Invalid Move Size",
+                message="Size of move must be at least 0.1 mm.",
+            )
+            return
+
         # only send if test is running
         proc = self.app.testing_process
         if proc and proc.is_alive():

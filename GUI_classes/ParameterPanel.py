@@ -4,7 +4,7 @@ from pathlib import Path
 import json
 from dataclasses import asdict
 from GUI_classes.DataJson import TestConfig
-
+from tkinter import simpledialog
 from ender_fdm.direction import Direction, UP, DOWN
 
 class ParameterPanel:
@@ -28,11 +28,35 @@ class ParameterPanel:
         config_path = f"{self.app.vars['test_id'].get()}.json"
         full_config_path = self.app.path_configs / config_path
 
+        check_move = self.app.vars["careful_inc"].get()
+        # checks move size is not smaller than 0.1 mm
+        if check_move < 0.1:
+            simpledialog.messagebox.showerror(
+                title="Invalid Move Size",
+                message="Size of move must be at least 0.1 mm.",
+            )
+            return
+        check_force = self.app.vars["force_threshold"].get()
+        if check_force < 0 or check_force >= 5:
+            simpledialog.messagebox.showerror(
+                title="Invalid Force Threshold",
+                message="Force threshold must be between 0 and 5 kgf.",
+            )
+            return
+        check_samples = self.app.vars["n_samples"].get()
+        if check_samples < 1 or check_samples > 10:
+            simpledialog.messagebox.showerror(
+                title="Invalid Sampling Rate",
+                message="Sampling rate must be between 1 and 1000 samples per move.",
+            )
+            return
+
         defaults = asdict(TestConfig())
         if isinstance(defaults.get("test_direction"), Direction):
             defaults["test_direction"] = defaults["test_direction"].value
         if isinstance(defaults.get("outfile"), Path):
             defaults["outfile"] = ""
+        
 
         path_to_results = self.app.path_to_TestResults / f"{self.app.vars['outfile'].get()}.json"
         overrides = {
